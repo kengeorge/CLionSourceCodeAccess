@@ -4,7 +4,11 @@ namespace UnrealBuildTool.Rules
 {
 	public class CLionSourceCodeAccess : ModuleRules
 	{
+	#if WITH_FORWARDED_MODULE_RULES_CTOR
         public CLionSourceCodeAccess(ReadOnlyTargetRules Target) : base(Target)
+    #else
+        public CLionSourceCodeAccess(TargetInfo Target)
+    #endif
 		{
 			PrivateDependencyModuleNames.AddRange(
 				new string[]
