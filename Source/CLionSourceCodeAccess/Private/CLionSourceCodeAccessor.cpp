@@ -249,7 +249,7 @@ bool FCLionSourceCodeAccessor::GenerateFromCodeLiteProject()
 	FString DefinitionsProcessed = TEXT("add_definitions(\n");
 	for (FString Line : DefinitionsLines)
 	{
-		DefinitionsProcessed.Append(FString::Printf(TEXT("\t-D%s\n"), *Line));
+		DefinitionsProcessed.Append(FString::Printf(TEXT("\t\"-D%s\"\n"), *Line.ReplaceCharWithEscapedChar()));
 	}
 	DefinitionsProcessed.Append(TEXT(")\n"));
 
